@@ -32,12 +32,12 @@
             </Grid.ColumnDefinitions>
 
             <Button x:Name="acButton" Content="AC" Grid.Column="0" Grid.Row="0" Click="AcButton_Click" />
-            <Button x:Name="plusButton" Content="+" Grid.Column="1" Grid.Row="0" Click="plusButton_Click" />
-            <Button x:Name="minusButton" Content="-" Grid.Column="2" Grid.Row="0" Click="minusButton_Click" />
-            <Button x:Name="razyButton" Content="*" Grid.Column="3" Grid.Row="0" Click="razyButton_Click" />
-            <Button x:Name="dzielButton" Content="/" Grid.Column="4" Grid.Row="0" Click="dzielButton_Click" />
-            <Button x:Name="powButton" Content="pow" Grid.Column="5" Grid.Row="0" Click="powButton_Click" />
-            <Button x:Name="moduloButton" Content="%" Grid.Column="6" Grid.Row="0" Click="moduloButton_Click" />
+            <Button x:Name="plusButton" Content="+" Grid.Column="1" Grid.Row="0" Click="PlusButton_Click" />
+            <Button x:Name="minusButton" Content="-" Grid.Column="2" Grid.Row="0" Click="MinusButton_Click" />
+            <Button x:Name="razyButton" Content="*" Grid.Column="3" Grid.Row="0" Click="RazyButton_Click" />
+            <Button x:Name="dzielButton" Content="/" Grid.Column="4" Grid.Row="0" Click="DzielButton_Click" />
+            <Button x:Name="powButton" Content="pow" Grid.Column="5" Grid.Row="0" Click="PowButton_Click" />
+            <Button x:Name="moduloButton" Content="%" Grid.Column="6" Grid.Row="0" Click="ModuloButton_Click" />
 
             <TextBox x:Name="inputField" Grid.ColumnSpan="7" Height="100" Margin="10" Grid.Row="1"/>
         </Grid>

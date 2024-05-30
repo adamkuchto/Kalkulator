@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace Kalkulator
 {
@@ -12,43 +13,58 @@ namespace Kalkulator
         {
             InitializeComponent();
         }
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                string content = button.Content.ToString();
+                inputField.Text += content;
+            }
+        }
         private void AcButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
             equationLabel.Content = "";
+            Button_Click(sender, e);
         }
-        private void plusButton_Click(object sender, RoutedEventArgs e)
+        private void PlusButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
             equationLabel.Content = "";
+            Button_Click(sender, e);
         }
-        private void minusButton_Click(object sender, RoutedEventArgs e)
+        private void MinusButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
             equationLabel.Content = "";
+            Button_Click(sender, e);
         }
-        private void razyButton_Click(object sender, RoutedEventArgs e)
+        private void RazyButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
             equationLabel.Content = "";
+            Button_Click(sender, e);
         }
-        private void dzielButton_Click(object sender, RoutedEventArgs e)
+        private void DzielButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
             equationLabel.Content = "";
+            Button_Click(sender, e);
         }
-        private void powButton_Click(object sender, RoutedEventArgs e)
+        private void PowButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
             equationLabel.Content = "";
-        }
-        private void moduloButton_Click(object sender, RoutedEventArgs e)
-        {
-            resultLabel.Content = "0";
-            equationLabel.Content = "";
+            Button_Click(sender, e);
         }
 
+        private void ModuloButton_Click(object sender, RoutedEventArgs e)
+        {
+            resultLabel.Content = "0";
+            equationLabel.Content = "";
+            Button_Click(sender, e);
+        }
     }
 
     public static class SimpleMath
@@ -80,15 +96,13 @@ namespace Kalkulator
         }
         public static double Pow(double n1, double n2)
         {
-            return Pow(n1,n2);
+            return Math.Pow(n1, n2);
         }
         public static double Modulo(double n1, double n2)
         {
             return n1 % n2;
         }
-
     }
-
     public enum SelectedOperator
     {
         Addition,
@@ -99,4 +113,3 @@ namespace Kalkulator
         Modulo
     }
 }
-
