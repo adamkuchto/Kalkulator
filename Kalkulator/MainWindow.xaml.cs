@@ -94,8 +94,9 @@ namespace Kalkulator
         Addition,
         Subtraction,
         Multiplication,
-        Division
-        // Dodaj więcej operatorów tutaj
+        Division,
+        Power,
+        Modulo
     }
 }
 
