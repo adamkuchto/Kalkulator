@@ -13,6 +13,7 @@ namespace Kalkulator
         {
             InitializeComponent();
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
@@ -22,85 +23,138 @@ namespace Kalkulator
                 inputField.Text += content;
             }
         }
+
         private void AcButton_Click(object sender, RoutedEventArgs e)
         {
             resultLabel.Content = "0";
             equationLabel.Content = "";
-            Button_Click(sender, e);
+            inputField.Text = "";
         }
+
         private void PlusButton_Click(object sender, RoutedEventArgs e)
         {
-            resultLabel.Content = "0";
-            equationLabel.Content = "";
-            Button_Click(sender, e);
+            string[] numbers = inputField.Text.Split(',');
+            if (numbers.Length == 2)
+            {
+                double a = Convert.ToDouble(numbers[0]);
+                double b = Convert.ToDouble(numbers[1]);
+
+                double result = a + b;
+
+                resultLabel.Content = result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Podaj dwie liczby oddzielone przecinkiem", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            inputField.Text = "";
         }
+
         private void MinusButton_Click(object sender, RoutedEventArgs e)
         {
-            resultLabel.Content = "0";
-            equationLabel.Content = "";
-            Button_Click(sender, e);
+            string[] numbers = inputField.Text.Split(',');
+            if (numbers.Length == 2)
+            {
+                double a = Convert.ToDouble(numbers[0]);
+                double b = Convert.ToDouble(numbers[1]);
+
+                double result = a - b;
+
+                resultLabel.Content = result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Podaj dwie liczby oddzielone przecinkiem", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            inputField.Text = "";
         }
+
         private void RazyButton_Click(object sender, RoutedEventArgs e)
         {
-            resultLabel.Content = "0";
-            equationLabel.Content = "";
-            Button_Click(sender, e);
+            string[] numbers = inputField.Text.Split(',');
+            if (numbers.Length == 2)
+            {
+                double a = Convert.ToDouble(numbers[0]);
+                double b = Convert.ToDouble(numbers[1]);
+
+                double result = a * b;
+
+                resultLabel.Content = result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Podaj dwie liczby oddzielone przecinkiem", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            inputField.Text = "";
         }
         private void DzielButton_Click(object sender, RoutedEventArgs e)
         {
-            resultLabel.Content = "0";
-            equationLabel.Content = "";
-            Button_Click(sender, e);
+            string[] numbers = inputField.Text.Split(',');
+            if (numbers.Length == 2)
+            {
+                double a = Convert.ToDouble(numbers[0]);
+                double b = Convert.ToDouble(numbers[1]);
+                if (b == 0)
+                {
+                    MessageBox.Show("Nie dzielimy przez zero");
+                    return;
+                }
+
+                double result = a / b;
+
+                resultLabel.Content = result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Podaj dwie liczby oddzielone przecinkiem", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            inputField.Text = "";
         }
+
         private void PowButton_Click(object sender, RoutedEventArgs e)
         {
-            resultLabel.Content = "0";
-            equationLabel.Content = "";
-            Button_Click(sender, e);
+            string[] numbers = inputField.Text.Split(',');
+            if (numbers.Length == 2)
+            {
+                double baseNumber = Convert.ToDouble(numbers[0]);
+                double exponent = Convert.ToDouble(numbers[1]);
+
+                double result = SimpleMath.Pow(baseNumber, exponent);
+
+                resultLabel.Content = result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Podaj dwie liczby oddzielone przecinkiem", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            inputField.Text = "";
         }
 
         private void ModuloButton_Click(object sender, RoutedEventArgs e)
         {
-            resultLabel.Content = "0";
-            equationLabel.Content = "";
-            Button_Click(sender, e);
+            string[] numbers = inputField.Text.Split(',');
+            if (numbers.Length == 2)
+            {
+                double a = Convert.ToDouble(numbers[0]);
+                double b = Convert.ToDouble(numbers[1]);
+
+                double result = a % b;
+
+                resultLabel.Content = result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Podaj dwie liczby oddzielone przecinkiem", "Invalid input", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            inputField.Text = "";
         }
     }
 
     public static class SimpleMath
     {
-        public static double Add(double n1, double n2)
-        {
-            return n1 + n2;
-        }
-
-        public static double Subtract(double n1, double n2)
-        {
-            return n1 - n2;
-        }
-
-        public static double Multiply(double n1, double n2)
-        {
-            return n1 * n2;
-        }
-
-        public static double Divide(double n1, double n2)
-        {
-            if (n2 == 0)
-            {
-                MessageBox.Show("Dzielenie przez 0 nie jest obsługiwane.", "Błędna operacja", MessageBoxButton.OK, MessageBoxImage.Error);
-                return 0;
-            }
-
-            return n1 / n2;
-        }
         public static double Pow(double n1, double n2)
         {
             return Math.Pow(n1, n2);
-        }
-        public static double Modulo(double n1, double n2)
-        {
-            return n1 % n2;
         }
     }
     public enum SelectedOperator
